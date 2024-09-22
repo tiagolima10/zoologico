@@ -37,10 +37,10 @@ class HelloController {
         return new Response('Olá, inseto!');
     }
 
-    #[Route('/felinos')]
-    public function felinos(): Response
+    #[Route('/aves')]
+    public function aves(): Response
     {
-        return new Response('Olá, felino!');
+        return new Response('Olá, ave!');
     }
 
     #[Route('/felinos')]
