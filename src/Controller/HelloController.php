@@ -30,4 +30,10 @@ class HelloController {
     {
         return new Response('Olá, Invertebrado!');
     }
+
+    #[Route('/insetos')]
+    public function teste(): Response
+    {
+        return new Response('Olá, inseto!');
+    }
 }
