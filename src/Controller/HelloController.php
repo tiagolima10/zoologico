@@ -13,9 +13,21 @@ class HelloController {
         return new Response('Olá, Mundo!');
     }
 
-    #[Route('/interna')]
+    #[Route('/dinossauro')]
     public function interna(): Response
     {
-        return new Response('Página interna');
+        return new Response('Olá, Dinossauro');
+    }
+
+    #[Route('/mamiferos')]
+    public function mamiferos(): Response
+    {
+        return new Response('Olá, Mamífero!');
+    }
+
+    #[Route('/invertebrados')]
+    public function invertebrados(): Response
+    {
+        return new Response('Olá, Invertebrado!');
     }
 }
