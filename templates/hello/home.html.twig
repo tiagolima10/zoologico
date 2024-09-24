@@ -1,22 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends 'base.html.twig' %}
 
-<h1>{{ title }}</h1>
+{% block title %}{{ parent() }} - Home {% endblock %}
+
+{% block stylesheets %}
+    <!-- Uso o parent() para mostrar as informações do template/bloco pai também -->
+    {{ parent() }}
+    <!-- Novo Css -->
+{% endblock %}
+
+{% block body %}
+
+<h1>{{ title|upper }}</h1>
 <p>Bem-Vindo a nosso site</p>
+
 <div class="container">
     <ul>
     {# Laço For. Foreach não funciona aqui no TWIG #}
         {% for user in users %}
-            <li>Nome: {{ user.name }} - {{ user.cep }}</li>
+            <li>
+                {% if user.name == 'Tiago Cavalo' %}
+                    >>
+                {% endif %}
+
+                Nome: {{ user.name }} - CEP: {{ user.cep }}
+            </li>
         {% endfor %}
     </ul>
 </div>
+
+{% endblock %}
