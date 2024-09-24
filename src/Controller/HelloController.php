@@ -2,15 +2,26 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HelloController {
-
+class HelloController extends AbstractController
+{
     #[Route('/')]
     public function index(): Response
     {
-        return new Response('Olá, Mundo!');
+        $users = [
+            ['name'=> 'Tiago Cavalo','cep'=> '00000000'],
+            ['name'=> 'Tambor Cavalo','cep'=> '00000001'],
+            ['name'=> 'Mau Cavalo','cep'=> '00000002'],
+            ['name'=> 'Tameuz Cavalo','cep'=> '00000003'],
+        ];
+
+        return $this->render('hello/home.html.twig', [
+            'title'=> 'Zoológico',
+            'users'=> $users,
+        ]);
     }
 
     #[Route('/animal/{slug}')]
